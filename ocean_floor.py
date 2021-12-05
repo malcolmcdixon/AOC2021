@@ -154,10 +154,8 @@ def main():
     floor.map_vents()
     floor.map_diag_vents()
 
-    # img = floor.draw()
-    # img.show()
-
-    print(floor.end)
+    img = floor.draw()
+    img.show()
 
 
 if "__main__" in __name__:
