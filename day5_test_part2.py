@@ -88,8 +88,6 @@ class Floor:
 
                     self.add_vent_to_location(Coordinate(x, y), vent)
 
-                    # print(f"diag_vent: {x} : {y}")
-
     def draw(self):
         for y in range(self.start.y, self.end.y + 1):
             line = ["."] * (self.end.x + 1)
