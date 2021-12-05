@@ -120,9 +120,9 @@ class Floor:
 
         for loc in self.dangerous_areas():
             color = (
-                255,
-                191,
                 0,
+                0,
+                255,
             )
 
             img.putpixel((loc.x, loc.y), color)
