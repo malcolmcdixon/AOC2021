@@ -18,7 +18,6 @@ for day in range(DAYS):
     for school in schools:
         school[0] -= 1
 
-    # add new school
     number_of_new_fish = sum(school[1] for school in schools if school[0] == -1)
 
     if number_of_new_fish:
@@ -26,6 +25,8 @@ for day in range(DAYS):
         for school in schools:
             if school[0] == -1:
                 school[0] = FISH_START
+
+        # add new school
         new_school = [[NEW_FISH_START, number_of_new_fish]]
         schools += new_school
 
