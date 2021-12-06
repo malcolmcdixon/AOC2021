@@ -30,5 +30,5 @@ for day in range(DAYS):
         new_school = [[NEW_FISH_START, number_of_new_fish]]
         schools += new_school
 
-    number_of_fish = sum(school[1] for school in schools)
-    print(f"Day: {day + 1} - {number_of_fish}")
+number_of_fish = sum(school[1] for school in schools)
+print(f"Day: {day + 1} - {number_of_fish}")
