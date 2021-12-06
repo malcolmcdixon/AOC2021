@@ -14,14 +14,14 @@ fish_count = Counter(fish)
 schools = [[timer, fish] for timer, fish in fish_count.items()]
 
 for day in range(DAYS):
-    # reduce spawns internal timer
+    # reduce schools internal timer
     for school in schools:
         school[0] -= 1
 
     # add new school
     number_of_new_fish = sum(school[1] for school in schools if school[0] == -1)
-    if number_of_new_fish:
 
+    if number_of_new_fish:
         # restart elapsed internal timers
         for school in schools:
             if school[0] == -1:
