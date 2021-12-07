@@ -5,13 +5,8 @@ with open("day7_input.txt") as f:
     crabs = line.rstrip().split(",")
     crabs = sorted([int(c) for c in crabs])
 
-
-def factorial(n: int) -> int:
-    return n * (n + 1) / 2
-
-
 mf = min(
-    sum(factorial(abs(pos - c)) for c in crabs)
+    sum(abs(pos - c) * (abs(pos - c) + 1) / 2 for c in crabs)
     for pos in range(min(crabs), max(crabs) + 1)
 )
 
