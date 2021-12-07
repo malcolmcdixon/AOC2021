@@ -1,9 +1,6 @@
-crabs = []
-
 with open("day7_input.txt") as f:
     line = f.readline()
-    crabs = line.rstrip().split(",")
-    crabs = sorted([int(c) for c in crabs])
+    crabs = sorted(map(lambda x: int(x), line.rstrip().split(",")))
 
 mf = min(
     sum(abs(pos - c) * (abs(pos - c) + 1) / 2 for c in crabs)
