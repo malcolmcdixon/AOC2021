@@ -11,8 +11,6 @@ digits = {
     9: "abcdfg",
 }
 
-segments = [c for c in "abcdefg"]
-
 signals = []
 outputs = []
 
