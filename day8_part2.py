@@ -63,7 +63,7 @@ for signal, output in zip(signals, outputs):
 
         # known number
         digit = key_by_value(udl, len(pattern))
-        mapping[digit] = sort_string(pattern)
+        mapping[digit] = pattern
 
     xor_4_8 = xor_string(mapping[4], mapping[8])
 
@@ -71,36 +71,31 @@ for signal, output in zip(signals, outputs):
         if len(pattern) not in [5, 6]:
             continue
 
+        pattern = sort_string(pattern)
+
         if len(pattern) == 5:
-            # print(mapping)
-
             if and_string(pattern, mapping[1]) == mapping[1]:
-                mapping[3] = sort_string(pattern)
+                mapping[3] = pattern
             elif and_string(pattern, xor_4_8) == xor_4_8:
-                mapping[2] = sort_string(pattern)
+                mapping[2] = pattern
             else:
-                mapping[5] = sort_string(pattern)
+                mapping[5] = pattern
 
-        else:
-            # len == 6
+        else:  # len == 6
             if and_string(pattern, mapping[1]) != mapping[1]:
-                mapping[6] = sort_string(pattern)
+                mapping[6] = pattern
             else:
                 xor_with_4 = xor_string(pattern, mapping[4])
                 if len(xor_with_4) == 2:
-                    mapping[9] = sort_string(pattern)
+                    mapping[9] = pattern
                 else:
-                    mapping[0] = sort_string(pattern)
+                    mapping[0] = pattern
 
-    print(mapping)
-    print(output)
     output_value = 0
     for idx, code in enumerate(output):
         code = sort_string(code)
         digit = key_by_value(mapping, code)
-
         output_value += digit * 10 ** (3 - idx)
-        print(idx, digit, output_value)
 
     total += output_value
 
