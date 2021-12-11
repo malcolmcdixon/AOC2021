@@ -69,18 +69,8 @@ def in_sync() -> bool:
     return total == 0
 
 
-# part 1
 flashes = 0
 for _ in range(100):
     do_step()
 
 print(f"Flashes: {flashes}")
-
-
-# part 2
-step = 0
-while not in_sync():
-    do_step()
-    step += 1
-
-print(f"In sync at step: {step}")

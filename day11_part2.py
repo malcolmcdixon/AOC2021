@@ -69,7 +69,6 @@ def in_sync() -> bool:
     return total == 0
 
 
-# part 2
 flashes = 0
 step = 0
 while not in_sync():
