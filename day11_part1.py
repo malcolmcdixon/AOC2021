@@ -1,5 +1,4 @@
 from typing import Union
-import os
 
 octopuses = []
 with open("day11_test_input.txt") as f:
