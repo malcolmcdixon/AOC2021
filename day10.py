@@ -1,9 +1,7 @@
 navigations = []
 with open("day10_input.txt") as f:
-    lines = f.readlines()
-    for line in lines:
-        data = [d for d in line.rstrip()]
-        navigations.append(data)
+    for line in f:
+        navigations.append(line.rstrip())
 
 open_chunk = ["(", "[", "{", "<"]
 close_chunk = [")", "]", "}", ">"]
@@ -35,4 +33,4 @@ for navigation in navigations:
 
 print(f"Syntax Score: {syntax_error_score}")
 completion_scores.sort()
-print(f"Completion Score: {completion_scores[int((len(completion_scores)-1)/2)]}")
+print(f"Completion Score: {completion_scores[len(completion_scores) // 2]}")
