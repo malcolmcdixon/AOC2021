@@ -81,7 +81,7 @@ class CaveSystem:
         for connection in cave.connections:
             cave = connection.connected_to
 
-            if visit_twice and cave.name in visited or cave.name in ["start"]:
+            if visit_twice and cave.name in visited or cave.name == "start":
                 continue
 
             self.find_paths(cave, end, visited.copy(), route.copy(), visit_twice)
