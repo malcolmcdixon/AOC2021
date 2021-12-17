@@ -104,7 +104,7 @@ class Graph:
 
                 # update risk and via
                 risk = node.risk + connection.risk
-                if risk <= ct_node.risk:
+                if risk < ct_node.risk:
                     ct_node.risk = risk
                     ct_node.via = node
                     if ct_node not in priority_list:
