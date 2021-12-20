@@ -1,5 +1,6 @@
 import re
 from enum import Enum
+from itertools import permutations
 
 
 class ReduceType(Enum):
@@ -120,13 +121,10 @@ def check_magnitude(snailfish: str) -> int:
     pattern = re.compile("\[\d+,\d+\]")
     while not snailfish.isdigit():
         snailfish = pattern.sub(calculate_magnitude, snailfish)
-        print(snailfish)
     return int(snailfish)
 
 
-def main():
-    snailfish_numbers: list[str] = import_snailfish_numbers("Day18/input.txt")
-
+def do_homework(snailfish_numbers: list[str]) -> int:
     snailfish = snailfish_numbers[0]
 
     for snailfish_number in snailfish_numbers[1:]:
@@ -137,14 +135,22 @@ def main():
             exploded = False
             while not exploded:
                 exploded, snailfish = reduce_snailfish(snailfish)
-                # print("EXPLODE:\t", snailfish)
 
             reduced, snailfish = reduce_snailfish(snailfish, mode=ReduceType.SPLIT)
-            # print("SPLIT:\t", snailfish)
 
     # check magnitude
-    answer = check_magnitude(snailfish)
-    print(f"Answer: {answer}")
+    return check_magnitude(snailfish)
+
+
+def main():
+    snailfish_numbers: list[str] = import_snailfish_numbers("Day18/input.txt")
+    max_magnitude = 0
+    for perm in permutations(snailfish_numbers, 2):
+        magnitude = do_homework(perm)
+        if magnitude > max_magnitude:
+            max_magnitude = magnitude
+
+    print(f"Answer: {max_magnitude}")
 
 
 if __name__ == "__main__":
